@@ -1,0 +1,456 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-color: #dcd7c9;
+    --main-color-2: #a27b5c;
+    --main-bk: #3f4e4f;
+    --main-dark: #2c3639;
+}
+body{
+   font-family: 'Roboto', sans-serif;
+   background-color: var(--main-bk);
+}
+/* main element--------------------------------*/
+.container{
+    width: 80%;
+    margin: auto;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.main-title{
+    font-size: 30px;
+    letter-spacing: 2px;
+    width: fit-content;
+    margin: 12px auto;
+    color: var(--main-color);
+    position: relative;
+}
+.main-title::after{
+    content: "";
+    width: 40%;
+    height: 1.5px;
+    background-color: var(--main-color-2);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s;
+}
+.main-title:hover::after{
+    width: 65%;
+}
+/* start header ---------------------- */
+.header{
+    padding: 45px 0 0;
+    
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container .image img{
+    max-width: 150px;
+    flex: 1;
+}
+.header nav .links li{
+    display: inline-block;
+    position: relative;
+}
+.header nav .links li::before{
+    content: "";
+    width: 94%;
+    height: 94%;
+    transform: scale(1,0);
+    /* transform-origin: bottom right; */
+    position: absolute;
+    border-left: 2px solid var(--main-color-2);
+    border-right: 2px solid var(--main-color-2);
+    left: 0;
+    top: 0;
+    transition: .20s;
+    z-index: -1
+}
+.header nav .links li::after{
+    content: "";
+    width: 97%;
+    height: 86%;
+    transform: scale(0,1);
+    transform-origin: center left;
+    position: absolute;
+    border-top: 2px solid var(--main-color-2);
+    border-bottom: 2px solid var(--main-color-2);
+    left: 0;
+    top: 0;
+    transition: .15s .20s;
+    z-index: -1;
+}
+.header nav .links li:hover::before{
+    transform: scale(1,1);
+}
+.header nav .links li:hover::after{
+    transform: scale(1,1);
+}
+.header nav .links li a{
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 0 5px;
+    font-weight: bold;
+    position: relative;
+    color: var(--main-color);
+    font-size: 17px;   
+}
+.header nav .links li:first-of-type:hover table{ /**********************************/
+    transform: scale(1);
+    z-index: 1;
+}
+/* tabele for first links hover------ */
+.header .container .links li table{
+    position: absolute;
+    top: 106%;
+    left: 0;
+    width: 400px;
+    border: 2px solid var(--main-color-2);
+    transform: scale(0);
+    z-index: -1;
+    background-color: var(--main-bk);
+    padding: 10px;
+    transition: transform .5s;
+}
+.header .container .links li table thead tr{
+    height: 40px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+.header .container .links li table thead tr th a{
+    border-bottom: 1px dashed var(--main-color);
+    padding-bottom: 3px;
+}
+
+.header .container .links li table tr{
+    height: 25px;
+}
+.header .container .links li table a{
+    padding: 0;
+    margin-left: 10px;
+}
+/* ************* */
+.header .serv li:not(:last-child) a{
+    display: inline-block;
+    font-size: 2em;
+    padding: 0px 16px 0 0 ;
+}
+.header .serv li:nth-child(3) a{
+    padding: 0;
+}
+.header .serv li{
+    display: inline-block;
+    position: relative;
+}
+.header .serv li a{
+    color: #000;
+    transition: 0.2s;
+}
+.header .serv li a.shop::after{
+    content: "0";
+    padding: 3px 4px;
+    border-radius: 50%;
+    background-color: var(--main-dark);
+    font-size: 12px;
+    color: var(--main-color-2);
+}
+.header .serv li a:hover{
+    color: var(--main-color-2);
+    transform: scale(1.2);
+}
+/* start main --------- */
+main .main{
+    padding: 40px 0;
+}
+main .main .container img{
+    width: 100%;
+    height: 77vh;
+}
+main .main .container{
+    position: relative;
+}
+main .main .container .text{
+    position: absolute;
+    width: 30%;
+    color: var(--main-dark);
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+main .main .container .text h1{
+    font-size: 45px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+main .main .container .text input[type="button"]{
+    padding: 5px 7px;
+    border: none;
+    background-color: var(--main-bk);
+    color: #e7e6de;
+    font-size: 14px;
+    display: block;
+    /* margin-left: auto; */
+    cursor: pointer;
+}
+main .main .container .text input[type="button"]:hover{
+    background-color: var(--main-dark);
+}
+
+/* section 2  */
+.special .container .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(236px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 45px;
+    grid-template-rows: repeat(2,380px);
+    margin: 40px 0 0;
+}
+.special .container .cards .card{
+    position: relative;
+}
+.special .container .cards .card img{
+    width: 100%;
+    height: 80%;
+    margin-bottom: 25px;
+}
+.special .container .cards .card .right{ /*icon*/
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 22px;
+    color: var(--main-color);
+    visibility: hidden;
+    transition: .2s;
+}
+.special .container .cards .card:hover .right{
+    visibility: visible;
+}
+.special .container .cards .card h4{
+    font-weight: normal;
+    color: #e7e6de82;
+    font-size: 17px;
+}
+.special .container .cards .card h3{
+    font-size: 20px;
+    /* padding: 5px 0; */
+    /* color: #fff; */
+}
+.special .container .cards .art{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: var(--main-color-2);
+    padding: 10px;
+    position: relative;
+} 
+.special .container .cards .art i{
+    font-size: 30px;
+}
+.special .container .cards .art .tex{
+    display: inline-block;
+    vertical-align:top;
+    margin: 0 0 20px 5px;
+}
+.special .container .cards .art p{
+    word-spacing: 3px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+.special .container .cards .art .lines{
+    
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+.special .container .cards .art .lines span{
+    width: 40px; height: 2px;
+    background-color: var(--main-dark);
+    display: inline-block;
+    margin: 0 10px;
+}
+.special .container .cards .diff{
+    position: relative;
+    margin-left: 8px;
+    transition: .5s;
+    box-shadow: 0 20px 20px 3px #00000038;
+}
+.special .container .cards .diff:hover{
+    
+    transform: scale(1.1);
+    
+    box-shadow: 0 20px 20px 8px #00000038;
+}
+.special .container .cards .diff img{
+    height: 100%;
+}
+.special .container .cards .diff .text{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+.special .container .cards .diff .text span{
+    font-size: 22px;
+    color:#7c522f;
+}
+.special .container .cards .diff .text h3{
+    font-size: 24px;
+    font-weight: 700;
+}
+.services{
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 0;
+    text-align: center;
+}
+.services .card:not(:last-child){
+    border-right: 2px solid var(--main-dark);
+    width: calc(100% / 5);
+}
+.services .card .icons{
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+.services .card .icons i{
+    font-size: 35px;
+    color: var(--main-dark);
+    display: block;
+    position: absolute;
+    transition: .4s;
+}
+.services .card .icons i:first-child{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.services .card .icons i:last-child{
+    color: var(--main-color-2);
+    position: absolute;
+    left: 50%;
+    top: 200%;
+    transform: translate(-50%  , -50%);   
+}
+.services .card:hover .icons i:first-child{
+    top: -70%;
+}
+.services .card:hover .icons i:last-child{
+    top: 50%;
+}
+.services .card h3{
+    color: var(--main-color);
+    padding: 5px 0 2px;
+    font-weight: 400;
+    font-size: 17px;
+}
+.services .card p{
+    font-size: 14px;
+    color: #e7e6de76;
+    text-transform: capitalize;
+}
+hr{
+    border-color: rgba(255, 255, 255, 40%);
+    margin: 45px 0;
+}
+/* ------------------------start product----- */
+section .sec2{
+    padding: 35px 0;
+}
+section .sec2 ul{
+    margin: 30px auto;
+    width: fit-content;
+}
+section .sec2 > ul li{
+    display: inline-block;
+    padding: 10px 15px;
+    color: #e7e6dea0;
+    font-size: 15px;
+}
+section .sec2 .container .products{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 20px;
+}
+section .sec2 .container .products .card{
+    position: relative;
+    box-shadow: 0 13px 13px 3px #00000018;
+}
+section .sec2 .container .card img{
+    width: 100%;
+    height: 80%;
+}
+section .sec2 .container .products .card .overlay{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: scalex(0);
+    opacity: .9;
+    transition: .3s;
+}
+section .sec2 .container .products .card .overlay img{
+    width: 100%;
+    height: 100%;
+}
+section .sec2 .container .products .card:hover .overlay{
+    transform: scaleX(1);
+}
+section .sec2 .container .products .card .overlay ul{
+    position: absolute;
+    width:70%;
+    text-align: center;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section .sec2 .container .products .card .overlay ul li{
+    margin: 0 5px;
+    display: inline-block;
+    background-color: var(--main-dark);
+    width: 40px;
+    height: 40px;
+}
+section .sec2 .container .products .card .overlay ul li a{
+    background-color:var(--main-dark);
+    color: var(--main-color);
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    line-height: 2.5;
+    padding: 0;
+}
+section .sec2 .container .products .card .text .stars{
+    padding: 15px 0 10px;
+}
+.sec2 .card .text .stars i{
+    margin-right: 5px;
+    font-size: 18px;
+    color: gold;
+}
+.sec2 .card .text h4{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+.sec2 .card .text span{
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+}
+/* section .products .container{} */
